@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT ANU SEJAHTERA - Masa Depan Ada Di Sini</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Font Configuration */
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0f0f0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, .display-font {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Hover Effects */
+        .hover-reveal:hover .reveal-text {
+            transform: translateY(0);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #eab308; /* Yellow-500 */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ca8a04;
+        }
+
+        .noise-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#FAFF00',
+                            black: '#0A0A0A',
+                            gray: '#1F1F1F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased">
+    <!-- Noise Overlay -->
+    <div class="noise-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 left-0 border-b border-white/10 bg-[#0f0f0f]/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold tracking-tighter text-brand-yellow display-font uppercase">
+                        PT ANU <span class="text-white">SEJAHTERA</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm uppercase tracking-widest hover:text-brand-yellow transition-colors">Tentang</a>
+                    <a href="#divisions" class="text-sm uppercase tracking-widest hover:text-brand-yellow transition-colors">Divisi</a>
+                    <a href="#talents" class="text-sm uppercase tracking-widest hover:text-brand-yellow transition-colors">Talent</a>
+                    <a href="#careers" class="text-sm uppercase tracking-widest hover:text-brand-yellow transition-colors">Karir</a>
+                    <a href="#contact" class="px-6 py-2 border border-white hover:bg-brand-yellow hover:text-black hover:border-brand-yellow transition-all duration-300 text-sm uppercase font-bold">Hubungi Kami</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-black absolute w-full border-b border-white/10">
+            <div class="px-4 pt-2 pb-8 space-y-4 flex flex-col items-center">
+                <a href="#about" class="text-xl uppercase font-bold hover:text-brand-yellow">Tentang</a>
+                <a href="#divisions" class="text-xl uppercase font-bold hover:text-brand-yellow">Divisi</a>
+                <a href="#talents" class="text-xl uppercase font-bold hover:text-brand-yellow">Talent</a>
+                <a href="#careers" class="text-xl uppercase font-bold hover:text-brand-yellow">Karir</a>
+                <a href="#contact" class="text-xl uppercase font-bold text-brand-yellow">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-black via-transparent to-brand-black"></div>
+            <!-- Abstract Shapes -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-yellow/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <p class="mb-4 text-brand-yellow uppercase tracking-[0.3em] text-sm animate-bounce">Established 2024</p>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-extrabold leading-none tracking-tighter mb-8 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-500">
+                KAMI BIKIN <br/><span class="text-brand-yellow">ANU</span> JADI NYATA.
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                PT Anu Sejahtera bukan sekadar perusahaan korporat biasa. Kami adalah kolektif kreatif, teknologi, dan hiburan yang mengubah "hmm..." menjadi "WOW!".
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#divisions" class="group relative px-8 py-4 bg-white text-black font-bold uppercase tracking-wider overflow-hidden">
+                    <span class="relative z-10 group-hover:text-white transition-colors">Lihat Karya Kami</span>
+                    <div class="absolute inset-0 bg-brand-black transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                </a>
+                <a href="#" class="flex items-center gap-2 text-white hover:text-brand-yellow transition-colors uppercase tracking-widest text-sm font-bold">
+                    <i data-lucide="play-circle" class="w-6 h-6"></i> Showreel 2025
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee Text -->
+    <div class="bg-brand-yellow text-black py-4 overflow-hidden border-y-4 border-black">
+        <div class="marquee-container">
+            <div class="marquee-content font-bold text-4xl uppercase tracking-tighter">
+                • KREATIF TANPA BATAS • SEJAHTERA BERSAMA • INOVASI GILA • TEKNOLOGI MASA DEPAN • PT ANU SEJAHTERA • KREATIF TANPA BATAS • SEJAHTERA BERSAMA • INOVASI GILA • TEKNOLOGI MASA DEPAN •
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section (Grid Layout) -->
+    <section id="about" class="py-24 bg-[#0f0f0f]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-5xl md:text-7xl font-bold mb-8 leading-none">BUKAN SEKEDAR <span class="text-stroke text-transparent border-white" style="-webkit-text-stroke: 1px white;">JANJI</span>.</h2>
+                    <p class="text-xl text-gray-400 mb-6 font-light">
+                        Di era di mana semua orang bisa membuat perusahaan, kami memilih untuk membuat perbedaan. PT Anu Sejahtera hadir sebagai payung untuk berbagai inisiatif liar yang mungkin dianggap mustahil oleh orang lain.
+                    </p>
+                    <p class="text-xl text-gray-400 font-light">
+                        Filosofi kami sederhana: <strong class="text-white">Kalau bisa rumit, kenapa harus mudah?</strong> Bercanda. Kami mengutamakan hasil yang memuaskan dompet dan hati.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="aspect-square bg-[#1a1a1a] border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-500 group">
+                            <div class="text-center p-4">
+                                <i data-lucide="zap" class="w-12 h-12 mx-auto mb-4 group-hover:stroke-black stroke-white"></i>
+                                <h3 class="font-bold text-2xl">CEPAT</h3>
+                            </div>
+                        </div>
+                        <div class="aspect-square bg-[#1a1a1a] border border-white/10 flex items-center justify-center hover:bg-brand-yellow hover:text-black transition-all duration-500 group mt-12">
+                            <div class="text-center p-4">
+                                <i data-lucide="smile" class="w-12 h-12 mx-auto mb-4 group-hover:stroke-black stroke-white"></i>
+                                <h3 class="font-bold text-2xl">ASYIK</h3>
+                            </div>
+                        </div>
+                        <div class="aspect-square bg-[#1a1a1a] border border-white/10 flex items-center justify-center hover:bg-purple-600 hover:text-white transition-all duration-500 group -mt-12">
+                            <div class="text-center p-4">
+                                <i data-lucide="trending-up" class="w-12 h-12 mx-auto mb-4 stroke-white"></i>
+                                <h3 class="font-bold text-2xl">CUAN</h3>
+                            </div>
+                        </div>
+                        <div class="aspect-square bg-[#1a1a1a] border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-500 group">
+                            <div class="text-center p-4">
+                                <i data-lucide="globe" class="w-12 h-12 mx-auto mb-4 group-hover:stroke-black stroke-white"></i>
+                                <h3 class="font-bold text-2xl">GLOBAL</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divisions / Services -->
+    <section id="divisions" class="py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 mb-16">
+            <h2 class="text-4xl md:text-6xl font-bold uppercase">Divisi Kami</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 border-b border-white/10">
+            <!-- Division 1 -->
+            <div class="group relative border-t md:border-r border-white/10 p-8 md:p-12 min-h-[400px] flex flex-col justify-between hover:bg-white hover:text-black transition-all duration-300">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest border border-current px-2 py-1 rounded-full mb-6 inline-block">Entertainment</span>
+                    <h3 class="text-3xl font-bold mb-4">Anu Entertainment</h3>
+                    <p class="text-sm opacity-70">Manajemen talenta lucu, aneh, dan berbakat. Kami memproduksi konten yang membuat orang tertawa sampai lupa utang.</p>
+                </div>
+                <div class="flex justify-end">
+                    <i data-lucide="arrow-up-right" class="w-10 h-10"></i>
+                </div>
+            </div>
+
+            <!-- Division 2 -->
+            <div class="group relative border-t md:border-r border-white/10 p-8 md:p-12 min-h-[400px] flex flex-col justify-between hover:bg-brand-yellow hover:text-black transition-all duration-300">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest border border-current px-2 py-1 rounded-full mb-6 inline-block">Technology</span>
+                    <h3 class="text-3xl font-bold mb-4">Anu Tech Labs</h3>
+                    <p class="text-sm opacity-70">Membuat aplikasi yang tidak dibutuhkan tapi diinginkan. Dari AI pembuat meme hingga blockchain gorengan.</p>
+                </div>
+                <div class="flex justify-end">
+                    <i data-lucide="arrow-up-right" class="w-10 h-10"></i>
+                </div>
+            </div>
+
+            <!-- Division 3 -->
+            <div class="group relative border-t border-white/10 p-8 md:p-12 min-h-[400px] flex flex-col justify-between hover:bg-purple-600 hover:text-white transition-all duration-300">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest border border-current px-2 py-1 rounded-full mb-6 inline-block">Consulting</span>
+                    <h3 class="text-3xl font-bold mb-4">Anu Consulting</h3>
+                    <p class="text-sm opacity-70">Konsultan bisnis untuk Anda yang bingung mau ngapain. Kami memberikan solusi, kadang masalah baru.</p>
+                </div>
+                <div class="flex justify-end">
+                    <i data-lucide="arrow-up-right" class="w-10 h-10"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Talent Section (New Feature) -->
+    <section id="talents" class="py-24 bg-brand-yellow text-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b-4 border-black pb-8">
+                <h2 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.8]">
+                    PARA<br>BINTANG
+                </h2>
+                <p class="text-xl font-bold mt-6 md:mt-0 max-w-md text-right">
+                    Kumpulan manusia unik yang siap menghibur (atau mengganggu) hidup Anda.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+                <!-- Talent 1 -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden border-2 border-black bg-white aspect-[3/4] mb-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 transition-all">
+                        <img src="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute top-4 right-4 bg-black text-white px-3 py-1 text-xs font-bold uppercase rotate-12 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Available
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase leading-none group-hover:underline decoration-4">Budi Setiawan</h3>
+                    <p class="font-mono text-sm mt-2 border-l-4 border-black pl-2 font-bold">Stand-up Comedy</p>
+                </div>
+
+                <!-- Talent 2 -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden border-2 border-black bg-white aspect-[3/4] mb-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 transition-all">
+                        <img src="https://images.unsplash.com/photo-1534030347209-7147fd9e7b1a?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <h3 class="text-2xl font-black uppercase leading-none group-hover:underline decoration-4">Siti Nurhalu</h3>
+                    <p class="font-mono text-sm mt-2 border-l-4 border-black pl-2 font-bold">Content Creator</p>
+                </div>
+
+                <!-- Talent 3 -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden border-2 border-black bg-white aspect-[3/4] mb-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 transition-all">
+                        <img src="https://images.unsplash.com/photo-1528892952291-009c663ce843?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 text-xs font-bold uppercase -rotate-6 opacity-100">
+                            Viral
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase leading-none group-hover:underline decoration-4">Joko Santuy</h3>
+                    <p class="font-mono text-sm mt-2 border-l-4 border-black pl-2 font-bold">Musisi Indie</p>
+                </div>
+
+                <!-- Talent 4 -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden border-2 border-black bg-white aspect-[3/4] mb-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 transition-all">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <h3 class="text-2xl font-black uppercase leading-none group-hover:underline decoration-4">Rina Nosebleed</h3>
+                    <p class="font-mono text-sm mt-2 border-l-4 border-black pl-2 font-bold">Actress / Host</p>
+                </div>
+
+                <!-- Talent 5 -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden border-2 border-black bg-white aspect-[3/4] mb-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 transition-all">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <h3 class="text-2xl font-black uppercase leading-none group-hover:underline decoration-4">Doni Tataan</h3>
+                    <p class="font-mono text-sm mt-2 border-l-4 border-black pl-2 font-bold">Magician</p>
+                </div>
+
+                <!-- Talent 6 -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden border-2 border-black bg-white aspect-[3/4] mb-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 transition-all">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute top-4 right-4 bg-black text-white px-3 py-1 text-xs font-bold uppercase rotate-12 opacity-0 group-hover:opacity-100 transition-opacity">
+                            New
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-black uppercase leading-none group-hover:underline decoration-4">Bella Saphira</h3>
+                    <p class="font-mono text-sm mt-2 border-l-4 border-black pl-2 font-bold">Model</p>
+                </div>
+
+                <!-- Talent 7 -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden border-2 border-black bg-white aspect-[3/4] mb-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 transition-all">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <h3 class="text-2xl font-black uppercase leading-none group-hover:underline decoration-4">Andi Lau</h3>
+                    <p class="font-mono text-sm mt-2 border-l-4 border-black pl-2 font-bold">Actor</p>
+                </div>
+
+                <!-- Talent 8 -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden border-2 border-black bg-white aspect-[3/4] mb-4 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-none group-hover:translate-x-1 group-hover:translate-y-1 transition-all">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500">
+                    </div>
+                    <h3 class="text-2xl font-black uppercase leading-none group-hover:underline decoration-4">Maya Estianty</h3>
+                    <p class="font-mono text-sm mt-2 border-l-4 border-black pl-2 font-bold">Singer</p>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center">
+                <a href="#" class="inline-block px-12 py-4 bg-black text-white font-bold text-xl uppercase hover:bg-white hover:text-black border-2 border-black transition-all shadow-[8px_8px_0px_0px_rgba(255,255,255,0.5)] hover:shadow-none translate-x-0 hover:translate-x-2 hover:translate-y-2">
+                    Lihat Semua Talent
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Talent / Team Section (Internal Team) -->
+    <section class="py-24 bg-[#0A0A0A]">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <h2 class="text-4xl md:text-6xl font-bold">ORANG DALAM</h2>
+                <a href="#" class="text-brand-yellow uppercase tracking-widest text-sm hover:underline mt-4 md:mt-0">Lihat Semua Tim -></a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Team Member 1 -->
+                <div class="group relative overflow-hidden">
+                    <div class="bg-gray-800 aspect-[3/4] grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CEO" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold text-white">Bapak Anu</h4>
+                        <p class="text-xs text-brand-yellow uppercase">CEO & Founder</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="group relative overflow-hidden mt-8 md:mt-12">
+                    <div class="bg-gray-800 aspect-[3/4] grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CTO" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold text-white">Ibu Itu</h4>
+                        <p class="text-xs text-brand-yellow uppercase">CTO</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="group relative overflow-hidden">
+                    <div class="bg-gray-800 aspect-[3/4] grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="COO" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold text-white">Mas Siapa</h4>
+                        <p class="text-xs text-brand-yellow uppercase">Creative Director</p>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="group relative overflow-hidden mt-8 md:mt-12">
+                    <div class="bg-gray-800 aspect-[3/4] grayscale group-hover:grayscale-0 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="CMO" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent">
+                        <h4 class="text-xl font-bold text-white">Mbak Aja</h4>
+                        <p class="text-xs text-brand-yellow uppercase">Head of Marketing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-brand-yellow text-black pt-20 pb-10 rounded-t-[3rem] mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h2 class="text-6xl md:text-8xl font-black mb-6 leading-[0.8]">AYO<br>NGOBROL.</h2>
+                    <p class="text-xl font-bold mb-8">Punya ide gila? Atau sekedar mau curhat? Kami siap mendengarkan (asal ada kopinya).</p>
+                    <a href="mailto:hello@anusejahtera.com" class="inline-block border-2 border-black px-8 py-4 text-2xl font-bold hover:bg-black hover:text-white transition-colors uppercase">
+                        hello@anusejahtera.com
+                    </a>
+                </div>
+                <div class="flex flex-col justify-end">
+                    <ul class="space-y-4 text-xl font-bold text-right">
+                        <li><a href="#" class="hover:underline">INSTAGRAM</a></li>
+                        <li><a href="#" class="hover:underline">LINKEDIN</a></li>
+                        <li><a href="#" class="hover:underline">TWITTER (X)</a></li>
+                        <li><a href="#" class="hover:underline">TIKTOK</a></li>
+                    </ul>
+                    <div class="mt-8 text-right font-mono text-sm">
+                        <p>Jalan Sudirman No. 99, Jakarta Selatan</p>
+                        <p>Indonesia, Planet Bumi</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t-2 border-black pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="font-bold text-lg">&copy; 2024 PT ANU SEJAHTERA.</p>
+                <p class="font-mono text-sm mt-4 md:mt-0">Dibuat dengan <span class="animate-pulse">❤️</span> dan sedikit stres.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Simple smooth scroll fix for anchor tags
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden'); // Close mobile menu if open
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
